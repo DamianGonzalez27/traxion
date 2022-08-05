@@ -1,0 +1,36 @@
+version: "3.5"
+
+services:
+  traxion-web:
+    container_name: traxion-web
+    build:
+      context: ./docker/nginx
+      args:
+        UID: $U_ID
+    ports:
+      - 8080:8080
+    volumes:
+      - /public:/appdata/www/public
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - traxion-be
+    networks:
+      - traxion-network
+
+  traxion-be:
+    container_name: traxion-be
+    build:
+      context: docker/php
+      args:
+        UID: $U_ID
+    environment:
+      PHP_IDE_CONFIG: serverName=Docker
+    volumes:
+      - ./:/appdata/www
+      - ~/.ssh/id_rsa:/home/appuser/.ssh/id_rsa
+    networks:
+      - traxion-network
+
+networks:
+  traxion-network:
+    external: true
