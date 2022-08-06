@@ -5,7 +5,7 @@ namespace App\Helpers;
 class UrlValidator 
 {
     /**
-     * Funcion para validar si es url
+     * Funcion para validar si es url real
      *
      * @param [type] $url
      * @return void

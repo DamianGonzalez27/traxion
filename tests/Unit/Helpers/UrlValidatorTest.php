@@ -18,6 +18,11 @@ class UrlValidatorTest extends TestCase
         $this->assertFalse(UrlValidator::validateUrl('lkjhkljhbo'));
     }
 
+    /**
+     * Función para validar una url real
+     *
+     * @return void
+     */
     public function testCalidateSuccessUrl() 
     {
         $this->assertTrue(UrlValidator::validateUrl('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg'));
