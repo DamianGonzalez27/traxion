@@ -3,5 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::post('postUrl', [\App\Http\Controllers\UrlController::class, 'postUrl']);
-Route::get('getUrl/{hash}', [\App\Http\Controllers\UrlController::class, 'getUrl']);
+/**
+ * Rutas
+ */
+Route::post('url', [\App\Http\Controllers\UrlController::class, 'postUrl']);
+Route::get('url/{hash}', [\App\Http\Controllers\UrlController::class, 'getUrl']);
